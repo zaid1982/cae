@@ -36,133 +36,294 @@
 <!--Main layout-->
 <main>
     <div class="container-fluid">
-        <section class="section mb-5">
-            <div class="row text-center">
-                <div class="col-md-12 col-xl-7">
+        <section class="mb-5 mt-lg-5 sectionMain">
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-plus mt-0"></i></button>
+                        <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                           data-toggle="popover" data-trigger="focus" title="List"
+                           data-content="All list available."><i class="fas fa-info mt-0 mx-1"></i></a>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" title="Refresh data"><i class="fas fa-sync mt-0"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="text-white mx-3">Course Booker Applications</a>
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-print mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-pdf mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-excel mt-0"></i></button>
+                    </div>
+                </div>
+                <div class="px-4 pb-4">
+                    <form class="form-inline md-form form-sm mt-4 mb-0 pb-0 float-right">
+                        <div class="">
+                            <i class="fas fa-search mt-2" aria-hidden="true"></i>
+                            <input type="text" id="txtAtyAssetTypeSearch" class="form-control form-control-sm" style="width: 250px; max-width:250px">
+                            <label for="txtAtyAssetTypeSearch" class="ml-4">Search</label>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table id="dtAtyAssetType" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
+                            <thead>
+                                <tr class="th-strong">
+                                    <th style="width: 4%">#</th>
+                                    <th style="width: 15%">Requester</th>
+                                    <th>Type of Course</th>
+                                    <th style="width: 12%">Length of Course</th>
+                                    <th style="width: 20%">Valid Date</th>
+                                    <th style="width: 10%">Submitted Date</th>
+                                    <th style="width: 8%">Status</th>
+                                    <th style="width: 32px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Air Asia Indonesia</td>
+                                    <td>Dangerous Goods Regulations</td>
+                                    <td>6 days</td>
+                                    <td>2019/06/01 to 2019/07/31</td>
+                                    <td>2019/05/12</td>
+                                    <td><h6><span class="badge badge-pill warning-color z-depth-2">Processing</span></h6></td>
+                                    <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section mb-5 sectionForm">
+            <div class="row mb-0 pb-0">
+                <div class="col-md-12">
+                    <button type="button" class="btn peach-gradient btn-rounded float-right" id="btnBack">
+                        <i class="fas fa-arrow-left"></i> Back to Main Page
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xl-5">
                     <div class="card card-cascade cascading-admin-card user-card mt-4">
                         <div class="admin-up d-flex justify-content-start">
-                            <i class="fa fas fa-file-signature orange darken-4 py-4"></i>
+                            <i class="fa fas fa-file-signature rgba-deep-orange-strong py-4"></i>
                             <div class="data">
-                                <h3 class="font-weight-bold dark-grey-text ml-2">Course Booker</h3>
+                                <h3 class="font-weight-bold dark-grey-text ml-2">&nbsp;Request Form</h3>
                             </div>
                         </div>
                         <div class="card-body card-body-cascade">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetTicketNo" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetTicketNo" id="lblTkdDetTicketNo">Ticket Number</label>
+                                    <div class="md-form md-outline mt-4">
+                                        <input type="text" id="" class="form-control" value="Air Asia Indonesia">
+                                        <label>Requester</label>
                                     </div>
                                 </div>
                             </div>
+                            <h6 class="pb-2 font-weight-bold">Wet Training :</h6>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetProblemType" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetProblemType" id="lblTkdDetProblemType">Problem Type</label>
-                                    </div>
+                                <div class="col-md-12 select-outline mt-2">
+                                    <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                        <option value="" disabled selected>Choose Type of Course</option>
+                                    </select>
+                                    <label>Type of Course *</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetWorkType" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetWorkType" id="lblTkdDetWorkType">Work Type</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 select-outline">
+                                    <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                        <option value="" disabled selected>Choose Customized or Standard Course</option>
+                                        <option value="">Customized Course</option>
+                                        <option value="">Standard Course</option>
+                                    </select>
+                                    <label>Customized or Standard Course *</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 select-outline">
+                                    <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                        <option value="" disabled selected>Choose A/C Type</option>
+                                    </select>
+                                    <label>A/C Type *</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 select-outline">
+                                    <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                        <option value="" disabled selected>Choose Training Center</option>
+                                    </select>
+                                    <label>Training Center *</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Length of Course *</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetWorkCategory" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetWorkCategory" id="lblTkdDetWorkCategory">Work Category</label>
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Course Pre-requisites *</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetCreatedBy" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetCreatedBy" id="lblTkdDetCreatedBy">Issued By</label>
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Course Objective *</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 select-outline">
+                                    <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                        <option value="" disabled selected>Choose Regulatory Authority</option>
+                                    </select>
+                                    <label>Regulatory Authority *</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control datepicker">
+                                        <label>Valid From *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control datepicker">
+                                        <label>Valid To *</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetTicketDate" class="form-control mb-0" disabled="">
-                                        <label for="txtTkdDetTicketDate" id="lblTkdDetTicketDate">Time Submitted</label>
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Min Clients *</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="md-form mb-0">
-                                        <input type="text" id="txtTkdDetTicketStatus" class="form-control" disabled="">
-                                        <label for="txtTkdDetTicketStatus" id="lblTkdDetTicketStatus">Status</label>
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Max Clients *</label>
                                     </div>
                                 </div>
                             </div>
+                            <h6 class="pb-2 font-weight-bold">Dry Product :</h6>
                             <div class="row">
-                                <div class="col-md-12 text-left">
-                                    <h6 class="mt-1 mb-1">
-                                        <small class="text-muted">Complaint</small>
-                                    </h6>
-                                    <label id="txaTkdDetTicketComplaint" style="min-height: 198px;"></label>
-                                    <hr class="hr-bold mt-0">
+                                <div class="col-md-6">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Hourly *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" class="form-control">
+                                        <label>Non-Training *</label>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" id="butTkdCreateWorkOrder"
-                                            class="btn btn-outline-dark-green btn-rounded waves-effect btn-sm float-right"><i
-                                            class="fas fa-file-invoice mr-1"></i> Create Work Order
-                                    </button>
-                                    <button type="button" id="butTkdPrint"
-                                            class="btn btn-outline-red btn-rounded waves-effect btn-sm float-right"><i
-                                            class="fas fa-file-pdf mr-1"></i> Download Work Order
+                                    <button type="button" class="btn btn-outline-dark-green btn-rounded waves-effect btn-sm float-right">
+                                        Submit Request Form <i class="fas fa-paper-plane ml-1"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-xl-5">
+                <div class="col-lg-12 col-xl-7">
                     <div class="card profile-card mt-4">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h5 class="mt-3 font-weight-bold mb-0">Ticket Images</h5>
-                            </div>
+                        <div class="card-header mdb-color lighten-5">
+                            <h5 class="font-weight-bold text-center mt-2">Course Details</h5>
                         </div>
-                        <div class="card-body text-center pt-1">
-                            <!--Carousel Wrapper-->
-                            <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
-                                <!--Controls
-                                <div class="controls-top">
-                                    <a class="btn-floating btn-secondary btn-sm" href="#carousel-with-lb" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                                    <a class="btn-floating btn-secondary btn-sm" href="#carousel-with-lb" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carousel-with-lb" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-with-lb" data-slide-to="1"></li>
-                                </ol>
-                                /.Controls-->
-                                <!--Slides and lightbox-->
-                                <div class="carousel-inner mdb-lightbox" role="listbox">
-                                    <div class="mdb-lightbox-ui"></div>
-                                    <div id="divTkdTicketImages"></div>
-                                </div>
-                                <!--/.Slides-->
-                                <!--Controls-->
-                                <a class="carousel-control-prev" href="#carousel-with-lb" role="button"
-                                   data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carousel-with-lb" role="button"
-                                   data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                                <!--/.Controls-->
+                        <div class="card-body pt-1">
+                            <div class="table-responsive">
+                                <table class="table table-hover display responsive mt-2 mb-0" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="th-strong">
+                                            <th style="width: 10%">Day</th>
+                                            <th>Activity</th>
+                                            <th style="width: 15%">Length</th>
+                                            <th style="width: 20%">Resource</th>
+                                            <th style="width: 20%">Instructor Qualification</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Dangerous Goods Regulations</td>
+                                            <td>480</td>
+                                            <td>DGA ROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Dangerous Goods Regulations</td>
+                                            <td>480</td>
+                                            <td>DGA ROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Security Awareness / Bomb Threat Awareness</td>
+                                            <td>240</td>
+                                            <td>CLASSROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Emergency Response Plan</td>
+                                            <td>240</td>
+                                            <td>CLASSROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Human Factor Awareness</td>
+                                            <td>120</td>
+                                            <td>CLASSROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Safety Management System</td>
+                                            <td>120</td>
+                                            <td>CLASSROOM</td>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>First Aid</td>
+                                            <td>240</td>
+                                            <td>FIRST AID ROOM</td>
+                                            <td>FIRST AID</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Service Experience Programme</td>
+                                            <td>480</td>
+                                            <td>CLASSROOM</td>
+                                            <td>PDU</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Disability Equality Training (DET)</td>
+                                            <td>480</td>
+                                            <td>CLASSROOM</td>
+                                            <td>BEAT</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!--/.Carousel Wrapper-->
                         </div>
                     </div>
                 </div>
@@ -210,10 +371,18 @@
         setTimeout(function () {
             try {
                 initiatePages();
-                versionLocal = mzGetDataVersion();
 
+                $('.sectionForm').hide();
 
+                $('.showDetail').on('click', function () {
+                    $('.sectionMain').hide();
+                    $('.sectionForm').show();
+                });
 
+                $('#btnBack').on('click', function () {
+                    $('.sectionMain').show();
+                    $('.sectionForm').hide();
+                });
             } catch (e) {
                 toastr['error'](e.message, _ALERT_TITLE_ERROR);
             }
