@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CAE Training Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- DataTables.net -->
+    <link rel="stylesheet" type="text/css" href="js/vendor/datatables/css/dataTables.bootstrap4.min.css"/>
+    <!-- Stepper CSS - minified-->
+    <link href="css/addons-pro/steppers.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <style>
+
+    </style>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+</head>
+
+<body class="fixed-sn light-blue-skin">
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <div class="includeHtml" id="h-nav_left"></div>
+    <!-- Navbar -->
+    <div class="includeHtml" id="h-nav_top"></div>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container-fluid">
+        <section class="mb-5 mt-lg-5 sectionMain">
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-plus mt-0"></i></button>
+                        <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                           data-toggle="popover" data-trigger="focus" title="List"
+                           data-content="All list available."><i class="fas fa-info mt-0 mx-1"></i></a>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" title="Refresh data"><i class="fas fa-sync mt-0"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="text-white mx-3">Course Booker Applications</a>
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-print mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-pdf mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-excel mt-0"></i></button>
+                    </div>
+                </div>
+                <div class="px-4 pb-4">
+                    <div class="table-responsive mt-3">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h6>Summary:</h6>
+                                <ul class="striped list-unstyled pl-2">
+                                    <li><a href="javascript:void(0);"><span class="bullet blue"></span> Total Instructors <span class="badge blue float-right z-depth-2">22</span></a></li>
+                                    <li><a href="javascript:void(0);"><span class="bullet yellow"></span> Total Courses <span class="badge yellow float-right z-depth-2">51</span></a></li>
+                                    <li><a href="javascript:void(0);"><span class="bullet light-green"></span> Total Subject <span class="badge light-green float-right z-depth-2">45</span></a></li>
+                                    <li><a href="javascript:void(0);"><span class="bullet red accent-2"></span> Total Hours <span class="badge red accent-2 float-right z-depth-2">1,320</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-7">
+                                <form>
+                                    <h6 class="pb-3">Search :</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 select-outline">
+                                            <select id="optUmnDesignationId" class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                            <label for="optUmnDesignationId">Year</label>
+                                        </div>
+                                        <div class="col-md-6 select-outline">
+                                            <select id="optUmnGroupId" class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                            <label for="optUmnGroupId">Month</label>
+                                        </div>
+                                    </div>
+                                    <div class="md-form md-outline mt-0 mb-3">
+                                        <input type="text" id="txtUmnUserSearch" class="form-control">
+                                        <label for="txtUmnUserSearch" class="active">Keyword Search</label>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-outline-cyan btn-rounded waves-effect btn-sm float-right z-depth-2">
+                                                Search <i class="fas fa-search ml-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="dtAtyAssetType" class="table table-hover table-bordered table-striped table-sm table-condensed mb-0 display responsive" cellspacing="0" width="100%">
+                                    <thead class="font-small">
+                                    <tr class="th-strong mdb-color lighten-1 text-white">
+                                        <th class="font-small">Date</th>
+                                        <th class="font-small">Day</th>
+                                        <th class="font-small" style="min-width: 100px">Edward</th>
+                                        <th class="font-small" style="min-width: 100px">Wong YS</th>
+                                        <th class="font-small" style="min-width: 100px">Veronica</th>
+                                        <th class="font-small" style="min-width: 100px">Zulhisham</th>
+                                        <th class="font-small" style="min-width: 100px">Nur Faridah</th>
+                                        <th class="font-small" style="min-width: 100px">Salman</th>
+                                        <th class="font-small" style="min-width: 100px">Rafiz</th>
+                                        <th class="font-small" style="min-width: 100px">Razlan</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="font-small">2019/01/03</td>
+                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-small">2019/01/03</td>
+                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">OFF</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-small">2019/01/03</td>
+                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                        <td class="font-small"></td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-small">2019/01/03</td>
+                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<!-- SCRIPTS -->
+<script type="text/javascript">
+    $('.includeHtml').each(function () {
+        const divId = $(this).attr('id');
+        $('#'+divId).load('html/'+divId.substr(2)+'.html?' + new Date().valueOf());
+    });
+</script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.js"></script>
+<!-- DataTables.net -->
+<script type="text/javascript" src="js/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/jszip.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/vfs_fonts.js"></script>
+<!-- Stepper JavaScript - minified -->
+<script type="text/javascript" src="js/addons-pro/stepper.min.js"></script>
+
+<!--Custom scripts-->
+<script type="text/javascript">
+    document.write('<scr' + 'ipt src="js/common.js?' + new Date().valueOf() + '" type="text/javascript"></scr' + 'ipt>');
+
+    let versionLocal;
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        ShowLoader();
+        setTimeout(function () {
+            try {
+                initiatePages();
+
+                $('.sectionForm').hide();
+
+                $('.showDetail').on('click', function () {
+                    $('.sectionMain').hide();
+                    $('.sectionForm').show();
+                });
+
+                $('#btnBack').on('click', function () {
+                    $('.sectionMain').show();
+                    $('.sectionForm').hide();
+                });
+            } catch (e) {
+                toastr['error'](e.message, _ALERT_TITLE_ERROR);
+            }
+
+            HideLoader();
+        }, 300);
+    });
+
+</script>
