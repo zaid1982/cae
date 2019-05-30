@@ -54,49 +54,71 @@
                     </div>
                 </div>
                 <div class="px-4 pb-4">
-                    <div class="table-responsive mt-3">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <h6>Summary:</h6>
-                                <ul class="striped list-unstyled pl-2">
-                                    <li><a href="javascript:void(0);"><span class="bullet blue"></span> Total Instructors <span class="badge blue float-right z-depth-2">22</span></a></li>
-                                    <li><a href="javascript:void(0);"><span class="bullet yellow"></span> Total Courses <span class="badge yellow float-right z-depth-2">51</span></a></li>
-                                    <li><a href="javascript:void(0);"><span class="bullet light-green"></span> Total Subject <span class="badge light-green float-right z-depth-2">45</span></a></li>
-                                    <li><a href="javascript:void(0);"><span class="bullet red accent-2"></span> Total Hours <span class="badge red accent-2 float-right z-depth-2">1,320</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-7">
-                                <form>
-                                    <h6 class="pb-3">Search :</h6>
-                                    <div class="row">
-                                        <div class="col-md-6 select-outline">
-                                            <select id="optUmnDesignationId" class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
-                                            <label for="optUmnDesignationId">Year</label>
-                                        </div>
-                                        <div class="col-md-6 select-outline">
-                                            <select id="optUmnGroupId" class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
-                                            <label for="optUmnGroupId">Month</label>
-                                        </div>
+                    <div class="row mt-4">
+                        <div class="col-md-7 pr-4">
+                            <form>
+                                <h6 class="pb-3">Search :</h6>
+                                <div class="row">
+                                    <div class="col-md-6 select-outline">
+                                        <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                        <label>Year</label>
                                     </div>
-                                    <div class="md-form md-outline mt-0 mb-3">
-                                        <input type="text" id="txtUmnUserSearch" class="form-control">
-                                        <label for="txtUmnUserSearch" class="active">Keyword Search</label>
+                                    <div class="col-md-6 select-outline">
+                                        <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                        <label>Month</label>
                                     </div>
-                                    <div class="row mb-4">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-outline-cyan btn-rounded waves-effect btn-sm float-right z-depth-2">
-                                                Search <i class="fas fa-search ml-1"></i>
-                                            </button>
-                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 select-outline">
+                                        <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                        <label>Airline</label>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 select-outline">
+                                        <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                        <label>Courses</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 select-outline">
+                                        <select class="mdb-select md-form md-outline colorful-select dropdown-info  mt-0" multiple>
+                                            <option value="" disabled selected></option>
+                                            <option value="1">Edward</option>
+                                            <option value="2">Wong YS</option>
+                                            <option value="3">Veronica</option>
+                                            <option value="4">Zulhisham</option>
+                                            <option value="5">Nur Faridah</option>
+                                        </select>
+                                        <button class="btn-save btn btn-primary btn-sm">Save</button>
+                                        <label>Instructor</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-outline-cyan btn-rounded waves-effect btn-sm float-right z-depth-2">
+                                            Search <i class="fas fa-search ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table id="dtAtyAssetType" class="table table-hover table-bordered table-striped table-sm table-condensed mb-0 display responsive" cellspacing="0" width="100%">
+                        <div class="col-md-5">
+                            <h6>Statistics:</h6>
+                            <ul class="striped list-unstyled pl-2">
+                                <li><a href="javascript:void(0);"><span class="bullet blue"></span> Total Instructors <span class="badge blue float-right z-depth-2">22</span></a></li>
+                                <li><a href="javascript:void(0);"><span class="bullet yellow"></span> Total Courses <span class="badge yellow float-right z-depth-2">51</span></a></li>
+                                <li><a href="javascript:void(0);"><span class="bullet light-green"></span> Total Subject <span class="badge light-green float-right z-depth-2">45</span></a></li>
+                                <li><a href="javascript:void(0);"><span class="bullet red accent-2"></span> Total Hours <span class="badge red accent-2 float-right z-depth-2">1,320</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="dtAtyAssetType" class="table table-hover table-bordered table-sm table-condensed mb-0 display responsive" cellspacing="0" width="100%">
                                     <thead class="font-small">
-                                    <tr class="th-strong mdb-color lighten-1 text-white">
+                                    <tr class="th-strong grey darken-4 text-white">
                                         <th class="font-small">Date</th>
                                         <th class="font-small">Day</th>
                                         <th class="font-small" style="min-width: 100px">Edward</th>
@@ -111,11 +133,23 @@
                                     </thead>
                                     <tbody>
                                     <tr>
+                                        <td class="font-small">2019/01/02</td>
+                                        <td class="font-small">Sunday</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
+                                    </tr>
+                                    <tr>
                                         <td class="font-small">2019/01/03</td>
-                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">Monday</td>
                                         <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
                                         <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
-                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small mdb-color lighten-1 text-white">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
@@ -124,22 +158,10 @@
                                     </tr>
                                     <tr>
                                         <td class="font-small">2019/01/03</td>
-                                        <td class="font-small">Saturday</td>
-                                        <td class="font-small">OFF</td>
+                                        <td class="font-small">Tuesday</td>
+                                        <td class="font-small grey lighten-2">OFF</td>
                                         <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
-                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
-                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
-                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
-                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
-                                        <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
-                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small">2019/01/03</td>
-                                        <td class="font-small">Saturday</td>
-                                        <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
-                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
-                                        <td class="font-small"></td>
+                                        <td class="font-small mdb-color lighten-1 text-white">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
@@ -147,11 +169,23 @@
                                         <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
                                     </tr>
                                     <tr>
-                                        <td class="font-small">2019/01/03</td>
-                                        <td class="font-small">Saturday</td>
+                                        <td class="font-small">2019/01/04</td>
+                                        <td class="font-small">Wednesday</td>
                                         <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
                                         <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
-                                        <td class="font-small">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small mdb-color lighten-1 text-white">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
+                                        <td class="font-small grey lighten-4">empty</td>
+                                        <td class="font-small grey lighten-4">empty</td>
+                                        <td class="font-small grey lighten-4">empty</td>
+                                        <td class="font-small grey lighten-4">empty</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-small">2019/01/05</td>
+                                        <td class="font-small">Thursday</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B292- HATDP (9-13)</td>
+                                        <td class="font-small">A320 CC INITIAL MAA B293-SEP D16 A320 SEP REVISION (9-14) WATER ASST (14-18)</td>
+                                        <td class="font-small mdb-color lighten-1 text-white">A320 CC INITIAL PAA B27- SEP D4 (9-18)</td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
                                         <td class="font-small">A320 ICCT -HUMAN PERFORMANCE & SAFETY REVIEW (14-18) </td>
