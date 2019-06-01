@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CAE Training Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.css">
+    <!-- DataTables.net -->
+    <link rel="stylesheet" type="text/css" href="js/vendor/datatables/css/dataTables.bootstrap4.min.css"/>
+    <!-- Stepper CSS - minified-->
+    <link href="css/addons-pro/steppers.min.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="js/vendor/fullcalendar-3.4.0/fullcalendar.min.css">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+</head>
+
+<body class="fixed-sn light-blue-skin">
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <div class="includeHtml" id="h-nav_left"></div>
+    <!-- Navbar -->
+    <div class="includeHtml" id="h-nav_top"></div>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container-fluid">
+        <!--Section: Notification panel-->
+        <section class="mt-4 mb-4 sectionMain">
+            <div class="card card-cascade narrower">
+                <section>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mr-0">
+                            <div class="view view-cascade gradient-card-header amy-crisp-gradient z-depth-4">
+                                <h2 class="h2-responsive mb-0">Course Schedule</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Section: Calendar -->
+                <section>
+                    <div class="px-4 pb-4 pt-4">
+                        <div class="row mt-4 ml-2">
+                            <div class="col-md-7 pr-4">
+                                <form>
+                                    <h6 class="pb-3">Search :</h6>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>Choose AOC</option>
+                                                <option value="1">MAA</option>
+                                            </select>
+                                            <label>AOC *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>Choose Course</option>
+                                                <option value="1">A320 CC INITIAL</option>
+                                            </select>
+                                            <label>Course *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>Choose Batch</option>
+                                                <option value="1">310</option>
+                                            </select>
+                                            <label>Batch *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-outline-cyan btn-rounded waves-effect btn-sm z-depth-2">
+                                                Search <i class="fas fa-search ml-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row py-3 px-2">
+                            <div class="col-md-12">
+                                <dl class="row">
+                                    <dt class="col-sm-2">Course</dt>
+                                    <dd class="col-sm-5">A320 CC Initial (MAA) 2019</dd>
+                                    <dt class="col-sm-2">Issue No.</dt>
+                                    <dd class="col-sm-3">1298-M</dd>
+
+                                    <dt class="col-sm-2">Duration</dt>
+                                    <dd class="col-sm-5">10 June 2019 - 13 August 2019</dd>
+                                    <dt class="col-sm-2">Date Issued</dt>
+                                    <dd class="col-sm-3">8 June 2019</dd>
+
+                                    <dt class="col-sm-2">AOC</dt>
+                                    <dd class="col-sm-10">MAA</dd>
+
+                                    <dt class="col-sm-2">Batch</dt>
+                                    <dd class="col-sm-10">310</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-4" id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.Section: Calendar -->
+            </div>
+        </section>
+    </div>
+
+    <div class="includeHtml" id="h-modal_change_password"></div>
+</main>
+
+<!-- SCRIPTS -->
+<script type="text/javascript">
+    $('.includeHtml').each(function () {
+        const divId = $(this).attr('id');
+        $('#'+divId).load('html/'+divId.substr(2)+'.html?' + new Date().valueOf());
+    });
+</script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.js"></script>
+<!-- DataTables.net -->
+<script type="text/javascript" src="js/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/jszip.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/vfs_fonts.js"></script>
+<!-- Moment -->
+<script type="text/javascript" src="js/vendor/fullcalendar-3.10.0/lib/moment.min.js"></script>
+<!-- Calendar -->
+<script type="text/javascript" src="js/vendor/fullcalendar-3.10.0/fullcalendar.min.js"></script>
+
+<!--Custom scripts-->
+<script type="text/javascript">
+    document.write('<scr' + 'ipt src="js/common.js?' + new Date().valueOf() + '" type="text/javascript"></scr' + 'ipt>');
+
+    let versionLocal;
+    let changePasswordClass;
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        ShowLoader();
+        setTimeout(function () {
+            try {
+                initiatePages();
+                versionLocal = mzGetDataVersion();
+                changePasswordClass = new ModalChangePassword();
+
+                let dataCalendars = [];
+                let textColor = ['white', 'white', 'white', 'black', 'black', 'white', 'white', 'black', 'black', 'black', 'white', 'white', 'white', 'white', 'white', 'white'];
+                let backgroundColor = ['blue', 'green', 'red', 'orange', 'yellow', 'grey', 'indigo', 'lime', 'aqua', 'silver', 'maroon', 'olive', 'teal', 'navy', 'fuchsia', 'purple'];
+
+                const activityUsers = [
+                    {a:'CAE WELCOME BRIEFING & TOUR (CAE)', b:'2019-06-10T09:00:00', c:'2019-06-10T10:00:00', d:'1'},
+                    {a:'BRIEFING BY PEOPLE AND CULTURE DEPARTMENT (PAC)', b:'2019-06-10T10:30:00', c:'2019-06-10T13:00:00', d:'0'},
+                    {a:'Lunch', b:'2019-06-10T13:00:00', c:'2019-06-10T14:00:00', d:'5'},
+                    {a:'BRIEFING BY CABIN CREW DEPARTMENT (CCD)', b:'2019-06-10T14:00:00', c:'2019-06-10T17:00:00', d:'2'},
+                    {a:'HOD BRIEFING', b:'2019-06-10T17:00:00', c:'2019-06-10T17:30:00', d:'9'},
+                    {a:'UNIFORM MEASUREMENT (WAREHOUSE)', b:'2019-06-10T17:30:00', c:'2019-06-10T18:00:00', d:'4'},
+                    {a:'BATCH INSTRUCTOR (CAE)', b:'2019-06-11T09:00:00', c:'2019-06-11T09:45:00', d:'6'},
+                    {a:'COMPANY ORIENTATION PROGRAM (CORP CULTURE/CAE)', b:'2019-06-11T10:00:00', c:'2019-06-11T13:00:00', d:'7'},
+                    {a:'Lunch', b:'2019-06-11T13:00:00', c:'2019-06-11T14:00:00', d:'5'},
+                    {a:'(SEP) A320 COMPUTER BASED TRAINING (CBT) (CAE)', b:'2019-06-11T14:00:00', c:'2019-06-11T18:00:00', d:'8'},
+                    {a:'IMAGE (RULES/POLICY AND THEORY) (CAE)', b:'2019-06-12T09:00:00', c:'2019-06-12T13:00:00', d:'3'},
+                    {a:'Lunch', b:'2019-06-12T13:00:00', c:'2019-06-12T14:00:00', d:'5'},
+                    {a:'IMAGE (RULES/POLICY AND THEORY) (CAE)', b:'2019-06-12T14:00:00', c:'2019-06-12T18:00:00', d:'3'},
+                    {a:'IMAGE (MAKE OVER / PRACTICAL) (CAE)', b:'2019-06-13T09:00:00', c:'2019-06-13T13:00:00', d:'3'},
+                    {a:'Lunch', b:'2019-06-13T13:00:00', c:'2019-06-13T14:00:00', d:'5'},
+                    {a:'IMAGE (MAKE OVER / PRACTICAL) (CAE)', b:'2019-06-13T14:00:00', c:'2019-06-13T18:00:00', d:'3'},
+                    {a:'CUSTOMER SERVICE EXCELLENCE (CSE) DAY 1 (CAE)', b:'2019-06-14T09:00:00', c:'2019-06-14T13:00:00', d:'10'},
+                    {a:'Lunch', b:'2019-06-14T13:00:00', c:'2019-06-14T14:00:00', d:'5'},
+                    {a:'CUSTOMER SERVICE EXCELLENCE (CSE) DAY 1 (CAE)', b:'2019-06-14T14:00:00', c:'2019-06-14T18:00:00', d:'10'},
+                    {a:'CUSTOMER SERVICE EXCELLENCE (CSE) DAY 2 (CAE)', b:'2019-06-17T09:00:00', c:'2019-06-17T13:00:00', d:'10'},
+                    {a:'Lunch', b:'2019-06-17T13:00:00', c:'2019-06-17T14:00:00', d:'5'},
+                    {a:'CUSTOMER SERVICE EXCELLENCE (CSE) DAY 2 (CAE)', b:'2019-06-17T14:00:00', c:'2019-06-17T18:00:00', d:'10'},
+                    {a:'SPEAK UP - DAY 1 (CAE)', b:'2019-06-18T09:00:00', c:'2019-06-18T13:00:00', d:'11'},
+                    {a:'Lunch', b:'2019-06-18T13:00:00', c:'2019-06-18T14:00:00', d:'5'},
+                    {a:'SPEAK UP - DAY 1 (CAE)', b:'2019-06-18T14:00:00', c:'2019-06-18T18:00:00', d:'11'},
+                    {a:'UNIFORM MEASUREMENT (WAREHOUSE)', b:'2019-06-18T18:00:00', c:'2019-06-18T18:30:00', d:'4'},
+                    {a:'SPEAK UP - DAY 2 (CAE)', b:'2019-06-19T09:00:00', c:'2019-06-19T13:00:00', d:'11'},
+                    {a:'Lunch', b:'2019-06-19T13:00:00', c:'2019-06-19T14:00:00', d:'5'},
+                    {a:'SPEAK UP - DAY 2 (CAE)', b:'2019-06-19T14:00:00', c:'2019-06-19T18:00:00', d:'11'},
+                    {a:'ANNOUNCEMENT (CAE)', b:'2019-06-20T09:00:00', c:'2019-06-20T13:00:00', d:'2'},
+                    {a:'Lunch', b:'2019-06-20T13:00:00', c:'2019-06-20T14:00:00', d:'5'},
+                    {a:'ANNOUNCEMENT (CAE)', b:'2019-06-20T14:00:00', c:'2019-06-20T18:00:00', d:'2'},
+                    {a:'AVIATION TERMINOLOGY - DAY 1 (CAE)', b:'2019-06-21T09:00:00', c:'2019-06-21T13:00:00', d:'12'},
+                    {a:'Lunch', b:'2019-06-21T13:00:00', c:'2019-06-21T14:00:00', d:'5'},
+                    {a:'AVIATION TERMINOLOGY - DAY 1 (CAE)', b:'2019-06-21T14:00:00', c:'2019-06-21T18:00:00', d:'12'},
+                    {a:'AVIATION TERMINOLOGY - DAY 2 (CAE)', b:'2019-06-24T09:00:00', c:'2019-06-24T13:00:00', d:'12'},
+                    {a:'Lunch', b:'2019-06-24T13:00:00', c:'2019-06-24T14:00:00', d:'5'},
+                    {a:'AVIATION TERMINOLOGY - DAY 2 (CAE)', b:'2019-06-24T14:00:00', c:'2019-06-24T18:00:00', d:'12'},
+                    {a:'AVIATION TERMINOLOGY EXAM (CORP CABIN SAFETY / CCD)', b:'2019-06-25T09:00:00', c:'2019-06-25T10:00:00', d:'12'},
+                    {a:'AVIATION TERMINOLOGY EXAM REVIEW(CORP CABIN SAFETY / CCD)', b:'2019-06-25T10:00:00', c:'2019-06-25T10:30:00', d:'12'},
+                    {a:'Break', b:'2019-06-25T10:30:00', c:'2019-06-25T11:00:00', d:'5'},
+                    {a:'FIRST AID - DAY 1 (CAE)', b:'2019-06-25T11:00:00', c:'2019-06-25T13:00:00', d:'13'},
+                    {a:'Lunch', b:'2019-06-25T13:00:00', c:'2019-06-25T14:00:00', d:'5'},
+                    {a:'FIRST AID - DAY 1  (CAE)', b:'2019-06-25T14:00:00', c:'2019-06-25T18:00:00', d:'13'},
+                    {a:'FIRST AID - DAY 2 (CAE)', b:'2019-06-26T09:00:00', c:'2019-06-26T13:00:00', d:'13'},
+                    {a:'Lunch', b:'2019-06-26T13:00:00', c:'2019-06-26T14:00:00', d:'5'},
+                    {a:'FIRST AID - DAY 2  (CAE)', b:'2019-06-26T14:00:00', c:'2019-06-26T18:00:00', d:'13'},
+                    {a:'FIRST AID PROGRESS TEST 1 & REVIEW (CAE)', b:'2019-06-27T09:00:00', c:'2019-06-27T10:30:00', d:'13'},
+                    {a:'FIRST AID - DAY 3 (CAE)', b:'2019-06-27T10:30:00', c:'2019-06-27T13:00:00', d:'13'},
+                    {a:'Lunch', b:'2019-06-27T13:00:00', c:'2019-06-27T14:00:00', d:'5'},
+                    {a:'FIRST AID - DAY 3  (CAE)', b:'2019-06-27T14:00:00', c:'2019-06-27T18:00:00', d:'13'},
+                    {a:'FIRST AID PROGRESS TEST 2 & REVIEW (CAE)', b:'2019-06-28T09:00:00', c:'2019-06-28T10:30:00', d:'13'},
+                    {a:'FIRST AID - DAY 4 (CAE)', b:'2019-06-28T10:30:00', c:'2019-06-28T13:00:00', d:'13'},
+                    {a:'Lunch', b:'2019-06-28T13:00:00', c:'2019-06-28T14:00:00', d:'5'},
+                    {a:'FIRST AID - DAY 4  (CAE)', b:'2019-06-28T14:00:00', c:'2019-06-28T18:00:00', d:'13'}
+                ];
+                $.each(activityUsers, function (n, u) {
+                    let dataCalendar = [];
+                    dataCalendar['title'] = u['a'];
+                    dataCalendar['start'] = u['b'];
+                    dataCalendar['end'] = u['c'];
+                    //dataCalendar['activityId'] = u['activityId'];
+                    dataCalendar['textColor'] = textColor[parseInt(u['d'])%16];
+                    dataCalendar['backgroundColor'] = backgroundColor[parseInt(u['d'])%16];
+                    dataCalendars.push(dataCalendar);
+                });
+                console.log(dataCalendars);
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+                    //defaultDate: '2017-08-16',
+                    navLinks: true, // can click day/week names to navigate views
+                    editable: false,
+                    eventLimit: true, // allow "more" link when too many events
+                    events: dataCalendars,
+                    /*events: [
+                        {
+                            title: 'Shahrol Nizam Ali',
+                            start: '2019-04-11',
+                            end: '2019-04-11',
+                            //url: 'https://google.com/',
+                            textColor: 'white',
+                            backgroundColor: 'black',
+                            activityId: 121
+                        },
+                        {
+                            title: 'Muhammad Ali',
+                            start: '2017-08-01T10:00:00',
+                            end: '2017-08-01T11:00:00'
+                        }
+                    ],*/
+                    eventClick: function(calEvent, jsEvent, view) {
+                        //alert('Event: ' + calEvent.title);
+                        //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                        //alert('View: ' + view.name);
+                        // change the border color just for fun
+                    }
+                })
+
+            } catch (e) {
+                toastr['error'](e.message, _ALERT_TITLE_ERROR);
+            }
+
+            HideLoader();
+        }, 300);
+    });
+
+    document.write('<scr' + 'ipt src="js/pages/modal_change_password.js?' + new Date().valueOf() + '" type="text/javascript"></scr' + 'ipt>');
+
+</script>

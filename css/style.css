@@ -94,3 +94,5 @@ input:-webkit-autofill {
     animation-name: autofill;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both; }
+
+.font-weight-500{font-weight:500!important}
