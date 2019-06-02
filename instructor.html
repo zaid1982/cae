@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CAE Training Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.css">
+    <!-- DataTables.net -->
+    <link rel="stylesheet" type="text/css" href="js/vendor/datatables/css/dataTables.bootstrap4.min.css"/>
+    <!-- Stepper CSS - minified-->
+    <link href="css/addons-pro/steppers.min.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="js/vendor/fullcalendar-3.4.0/fullcalendar.min.css">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+</head>
+
+<body class="fixed-sn light-blue-skin">
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <div class="includeHtml" id="h-nav_left"></div>
+    <!-- Navbar -->
+    <div class="includeHtml" id="h-nav_top"></div>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container-fluid">
+        <!--Section: Main panel-->
+        <section class="mb-5 mt-lg-5 sectionAszMain">
+            <div class="card card-cascade narrower">
+                <!--Section: Search Function & Chart-->
+                <section>
+                    <div class="row">
+                        <!--Search Function-->
+                        <div class="col-xl-5 col-lg-12 mr-0">
+                            <div class="view view-cascade gradient-card-header aqua-gradient-rgba z-depth-4">
+                                <h2 class="h2-responsive mb-0">Instructor Management</h2>
+                            </div>
+                            <div class="card-body card-body-cascade">
+                                <div class="card-body pt-3">
+                                    <h6>User Roles:</h6>
+                                    <div class="mt-1 pb-2">
+                                        <ul class="striped list-unstyled pl-2">
+                                            <li><a href="javascript:void(0);"><span class="bullet blue z-depth-2"></span> All Status <span class="badge blue float-right">34</span></a></li>
+                                            <li><a href="javascript:void(0);"><span class="bullet light-green z-depth-2"></span> Active <span class="badge light-green float-right">32</span></a></li>
+                                            <li><a href="javascript:void(0);"><span class="bullet red accent-2 z-depth-2"></span> On-leave <span class="badge red accent-2 float-right">2</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="pb-3">Search:</h6>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
+                                            <label>Subject</label>
+                                        </div>
+                                    </div>
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" id="txtAszUserSearch" class="form-control">
+                                        <label for="txtAszUserSearch" class="active">Keyword Search</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Chart-->
+                        <div class="col-xl-7 col-lg-12 mb-5">
+                            <div class="view view-cascade z-depth-4">
+                                <div id="divChart" style="height: 450px; margin: 0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Section: Table-->
+                <section>
+                    <div class="card card-cascade narrower z-depth-0">
+                        <div class="view view-cascade gradient-card-header aqua-gradient-rgba narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
+                            <div>
+                                <button type="button" id="btnAszUserAdd" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Add User"><i class="fas fa-plus mt-0"></i></button>
+                                <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                                   data-toggle="popover" data-trigger="focus" title="User List"
+                                   data-content="User List for all users that use the system."><i class="fas fa-info mt-0 mx-1"></i></a>
+                                <button type="button" id="btnDtAszUserRefresh" class="btn btn-outline-white btn-rounded btn-sm px-2" data-toggle="tooltip" data-placement="top" title="Refresh data"><i class="fas fa-sync mt-0"></i></button>
+                            </div>
+                            <a href="javascript:void(0);" class="text-white mx-3">Asset List</a>
+                            <div>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-print mt-0"></i></button>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-pdf mt-0"></i></button>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-excel mt-0"></i></button>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="table-responsive">
+                                <table id="dtAszUser" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="th-strong">
+                                            <th scope="row" style="width: 4%">#</th>
+                                            <th>Instructor ID</th>
+                                            <th>Instructor Name</th>
+                                            <th>Contact Number</th>
+                                            <th>Email</th>
+                                            <th>Total hours</th>
+                                            <th style="width: 8%">Status</th>
+                                            <th style="width: 55px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1009333</td>
+                                            <td>A/L PURANATH RAO, DIWAKAR BHONS</td>
+                                            <td>60126141761</td>
+                                            <td>diwakarbhonsle@airasia.com</td>
+                                            <td>234</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>1022802</td>
+                                            <td>AANANTHAN, KEERTHAN A/L</td>
+                                            <td>60169537159</td>
+                                            <td>keerthanaananth@airasia.com</td>
+                                            <td>235</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>1009572</td>
+                                            <td>AB AZIZ, AHMAD SALIM BIN</td>
+                                            <td>60133562633</td>
+                                            <td>salimaziz@airasia.com</td>
+                                            <td>87</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>1021599</td>
+                                            <td>AB RAHMAN, AZRIN HAFIZ</td>
+                                            <td>60126564796</td>
+                                            <td>hafizabrahman@airasia.com</td>
+                                            <td>166</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>1001746</td>
+                                            <td>ABD HAK, MOHD NIZAM BIN</td>
+                                            <td>60165074000</td>
+                                            <td>mohdnizamabd@airasia.com</td>
+                                            <td>253</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>1017963</td>
+                                            <td>ABD RAHMAN, MOHAMMAD HAFIZ BIN</td>
+                                            <td>60164404707</td>
+                                            <td>mhafizabdrahman@airasia.com</td>
+                                            <td>187</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>1020367</td>
+                                            <td>ABDLLAH, AHMAD BIN</td>
+                                            <td>60193814830</td>
+                                            <td>ahmadabdllah@airasia.com</td>
+                                            <td>176</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>1018065</td>
+                                            <td>ABDUL MALEK, MD AIZAM BIN</td>
+                                            <td>60193316666</td>
+                                            <td>mdaizamshahar@airasia.com</td>
+                                            <td>155</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>1022134</td>
+                                            <td>ABDUL, MOHD SOFEE BIN</td>
+                                            <td>60126391495</td>
+                                            <td>mohdsofeeabdul@airasia.com</td>
+                                            <td>145</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>1004599</td>
+                                            <td>ABDULLAH, MUHAMAD AZZROY LEE</td>
+                                            <td>60123166387</td>
+                                            <td>muhamadazzroylee@airasia.com</td>
+                                            <td>167</td>
+                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
+                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- Grid row -->
+                                <nav aria-label="Page navigation example">
+                                    <h6 class="float-left pl-3">Showing 1 to 10 of 34 entries</h6>
+                                    <ul class="pagination pagination-circle pg-blue justify-content-end">
+                                        <li class="page-item disabled"><a class="page-link">First</a></li>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link">1</a></li>
+                                        <li class="page-item"><a class="page-link">2</a></li>
+                                        <li class="page-item"><a class="page-link">3</a></li>
+                                        <li class="page-item"><a class="page-link">4</a></li>
+                                        <li class="page-item"><a class="page-link">5</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Last</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link">Terakhir</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div class="includeHtml" id="h-modal_change_password"></div>
+</main>
+
+<!-- SCRIPTS -->
+<script type="text/javascript">
+    $('.includeHtml').each(function () {
+        const divId = $(this).attr('id');
+        $('#'+divId).load('html/'+divId.substr(2)+'.html?' + new Date().valueOf());
+    });
+</script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.js"></script>
+<!-- DataTables.net -->
+<script type="text/javascript" src="js/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/jszip.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/vendor/datatables/js/vfs_fonts.js"></script>
+<!-- Highchart -->
+<script type="text/javascript" src="js/vendor/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="js/vendor/highcharts/modules/exporting.js"></script>
+<script type="text/javascript" src="js/vendor/highcharts/modules/export-data.js"></script>
+<script type="text/javascript" src="js/vendor/highcharts/themes/dark-blue.js"></script>
+
+<!--Custom scripts-->
+<script type="text/javascript">
+    document.write('<scr' + 'ipt src="js/common.js?' + new Date().valueOf() + '" type="text/javascript"></scr' + 'ipt>');
+
+    let versionLocal;
+    let changePasswordClass;
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        ShowLoader();
+        setTimeout(function () {
+            try {
+                initiatePages();
+                versionLocal = mzGetDataVersion();
+                changePasswordClass = new ModalChangePassword();
+
+                const chartData = [
+                    {name: 'Active', y:32, color:'green'},
+                    {name: 'On-leave', y:2, color:'red'}
+                ];
+
+                Highcharts.chart('divChart', {
+                    chart: {
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Total Instructor by Status'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.y} ({point.percentage:.1f}%)</b>'
+                    },
+                    credits:{
+                        enabled:false
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.y}',
+                                color: 'white'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Status',
+                        data: chartData
+                    }]
+                });
+
+            } catch (e) {
+                toastr['error'](e.message, _ALERT_TITLE_ERROR);
+            }
+
+            HideLoader();
+        }, 300);
+    });
+
+    document.write('<scr' + 'ipt src="js/pages/modal_change_password.js?' + new Date().valueOf() + '" type="text/javascript"></scr' + 'ipt>');
+
+</script>
