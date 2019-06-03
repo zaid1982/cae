@@ -81,7 +81,7 @@
                         <!--Chart-->
                         <div class="col-xl-7 col-lg-12 mb-5">
                             <div class="view view-cascade z-depth-4">
-                                <div id="chartUmnLeaveByStatus" style="height: 600px; margin: 0"></div>
+                                <div id="chartUmnLeaveByStatus" style="height: 630px; margin: 0"></div>
                             </div>
                         </div>
                     </div>
@@ -181,17 +181,17 @@
                 userManagementClass_ = new MainUserManagement();
                 modalUserClass_ = new ModalUser();
 
-                const refStatus_ = mzGetLocalArray('gems_status', versionLocal_, 'statusId');
-                const refRole_ = mzGetLocalArray('gems_role', versionLocal_, 'roleId');
-                const refDesignation_ = mzGetLocalArray('gems_designation', versionLocal_, 'designationId');
-                const refGroup_ = mzGetLocalArray('gems_group', versionLocal_, 'groupId');
-                const refClient_ = mzGetLocalArray('gems_client', versionLocal_, 'clientId');
-                const refSite_ = mzGetLocalArray('gems_site', versionLocal_, 'siteId');
+                const refStatus_ = mzGetLocalArray('cae_status', versionLocal_, 'statusId');
+                const refRole_ = mzGetLocalArray('cae_role', versionLocal_, 'roleId');
+                const refDesignation_ = mzGetLocalArray('cae_designation', versionLocal_, 'designationId');
+                const refGroup_ = mzGetLocalArray('cae_group', versionLocal_, 'groupId');
+                //const refClient_ = mzGetLocalArray('cae_client', versionLocal_, 'clientId');
+                //const refSite_ = mzGetLocalArray('cae_site', versionLocal_, 'siteId');
 
                 modalUserClass_.setClassFrom(userManagementClass_);
                 modalUserClass_.setRefDesignation(refDesignation_);
-                modalUserClass_.setRefClient(refClient_);
-                modalUserClass_.setRefSite(refSite_);
+                //modalUserClass_.setRefClient(refClient_);
+                //modalUserClass_.setRefSite(refSite_);
                 modalUserClass_.init();
 
                 userManagementClass_.setRefStatus(refStatus_);

@@ -5,18 +5,12 @@ require_once 'function/f_general.php';
 require_once 'function/f_login.php';
 require_once 'function/f_reference.php';
 require_once 'function/f_user.php';
-require_once 'function/f_client.php';
-require_once 'function/f_site.php';
-require_once 'function/f_contract.php';
 
 $constant = new Class_constant();
 $fn_general = new Class_general();
 $fn_login = new Class_login();
 $fn_reference = new Class_reference();
 $fn_user = new Class_user();
-$fn_client = new Class_client();
-$fn_site = new Class_site();
-$fn_contract = new Class_contract();
 $api_name = 'api_local_data';
 $is_transaction = false;
 $form_data = array('success'=>false, 'result'=>'', 'error'=>'', 'errmsg'=>'');
@@ -42,35 +36,27 @@ try {
             
         $result = array();
         switch ($name) {
-            case 'gems_status':
+            case 'cae_status':
                 $result = $fn_reference->get_status();
                 break;
-            case 'gems_state':
+            case 'cae_state':
                 $result = $fn_reference->get_state();
                 break;
-            case 'gems_city':
+            case 'cae_city':
                 $result = $fn_reference->get_city();
                 break;
-            case 'gems_role':
+            case 'cae_role':
                 $result = $fn_reference->get_role();
                 break;
-            case 'gems_user':
+            case 'cae_user':
                 $result = $fn_user->get_users();
                 break;
-            case 'gems_designation':
+            case 'cae_designation':
                 $result = $fn_reference->get_designation();
                 break;
-            case 'gems_group':
+            case 'cae_group':
                 $result = $fn_reference->get_group_list();
                 break;
-            case 'gems_client':
-                $result = $fn_client->get_client_list();
-                break;
-            case 'gems_site':
-                $result = $fn_site->get_site_list();
-                break;
-            case 'gems_contract':
-                $result = $fn_contract->get_contract_list();
                 break;
             default:
                 throw new Exception('[' . __LINE__ . '] - Parameter name invalid ('.$name.')');
