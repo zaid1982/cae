@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="view view-cascade z-depth-4">
-                        <div id="chartUmnLeaveByStatus" style="height: 450px; margin: 0"></div>
+                        <div id="divChartLeaveByStatus" style="height: 450px; margin: 0"></div>
                     </div>
                 </div>
             </div>
@@ -207,11 +207,13 @@
                 });
 
                 const chartData2 = [
-                    {name: 'Active', y:32, color:'green'},
-                    {name: 'On-leave', y:2, color:'red'}
+                    {name: 'Super Administrator', y:1},
+                    {name: 'Scheduler Office', y:12},
+                    {name: 'Instructor', y:143},
+                    {name: 'Trainee', y:1232}
                 ];
 
-                Highcharts.chart('divChart', {
+                Highcharts.chart('divChartLeaveByStatus', {
                     chart: {
                         type: 'pie'
                     },
