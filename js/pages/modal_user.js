@@ -206,7 +206,6 @@ function ModalUser() {
         setTimeout(function () {
             try {
                 mzOption('optMusDesignationId', refDesignation, 'Choose Designation', 'designationId', 'designationDesc', {designationStatus: '1'}, 'required');
-                mzOption('optMusClientId', refClient, 'Choose Client', 'clientId', 'clientName', {clientStatus: '1'}, 'required');
 
                 formValidate.enableField('txtMusUserName');
                 formValidate.enableField('txtMusUserPassword');
@@ -214,6 +213,9 @@ function ModalUser() {
                 $('.divMusAddOnly').show();
                 $('#lblMusTitle').html('<i class="fas fa-user-plus text-white"></i> &nbsp;Register New User');
                 $('#txtMusUserName').prop('disabled', false);
+                $('.divMusRoles').show();
+                $('#divMusRole1, #divMusRole2, #divMusRole3, #divMusRole4, #divMusRole5').show();
+                $('#divMusRole6').hide();
                 $('#modal_user').modal({backdrop: 'static', keyboard: false});
             } catch (e) {
                 toastr['error'](e.message, _ALERT_TITLE_ERROR);

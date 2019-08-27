@@ -40,7 +40,7 @@
             <div class="card card-cascade narrower">
                 <div class="view view-cascade gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
                     <div>
-                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-plus mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main showDetail" data-toggle="tooltip" data-placement="top" title="Book Course"><i class="fas fa-plus mt-0"></i></button>
                         <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
                            data-toggle="popover" data-trigger="focus" title="List"
                            data-content="All list available."><i class="fas fa-info mt-0 mx-1"></i></a>
@@ -62,14 +62,15 @@
                         </div>
                     </form>
                     <div class="table-responsive">
-                        <table id="dtAtyAssetType" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
+                        <table id="dtCourse" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
                             <thead>
                                 <tr class="th-strong">
                                     <th style="width: 4%">#</th>
                                     <th style="width: 15%">Requester</th>
                                     <th>Type of Course</th>
-                                    <th style="width: 12%">Length of Course</th>
-                                    <th style="width: 20%">Valid Date</th>
+                                    <th style="width: 10%">Batch No</th>
+                                    <th style="width: 10%">Length of Course</th>
+                                    <th style="width: 15%">Valid Date</th>
                                     <th style="width: 10%">Submitted Date</th>
                                     <th style="width: 8%">Status</th>
                                     <th style="width: 32px"></th>
@@ -80,11 +81,12 @@
                                     <td>1</td>
                                     <td>Air Asia Indonesia</td>
                                     <td>Dangerous Goods Regulations</td>
+                                    <td>82</td>
                                     <td>6 days</td>
                                     <td>2019/06/01 to 2019/07/31</td>
                                     <td>2019/05/12</td>
-                                    <td><h6><span class="badge badge-pill warning-color z-depth-2">Processing</span></h6></td>
-                                    <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                    <td><h6><span class="badge badge-pill success-color z-depth-2">Planned</span></h6></td>
+                                    <td><a><i class="fas fa-info-circle material-tooltip-main showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -123,6 +125,9 @@
                                 <div class="col-md-12 select-outline mt-2">
                                     <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
                                         <option value="" disabled selected>Choose Type of Course</option>
+                                        <option value="">A320 CABIN CREW INITIAL (MAA)</option>
+                                        <option value="">A330 PILOT / CC RECURRENT (IAAX) DRILL</option>
+                                        <option value="">Guest Service Recurrent (IAA)</option>
                                     </select>
                                     <label>Type of Course *</label>
                                 </div>
@@ -141,6 +146,8 @@
                                 <div class="col-md-12 select-outline">
                                     <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
                                         <option value="" disabled selected>Choose A/C Type</option>
+                                        <option value="">A320</option>
+                                        <option value="">A330</option>
                                     </select>
                                     <label>A/C Type *</label>
                                 </div>
@@ -149,6 +156,7 @@
                                 <div class="col-md-12 select-outline">
                                     <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
                                         <option value="" disabled selected>Choose Training Center</option>
+                                        <option value="">CAE Kuala Lumpur Sdn. Bhd.</option>
                                     </select>
                                     <label>Training Center *</label>
                                 </div>
@@ -232,7 +240,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-outline-dark-green btn-rounded waves-effect btn-sm float-right">
+                                    <button type="button" id="next" class="btn btn-outline-dark-green btn-rounded waves-effect btn-sm float-right">
                                         Submit Request Form <i class="fas fa-paper-plane ml-1"></i>
                                     </button>
                                 </div>
@@ -329,6 +337,309 @@
                 </div>
             </div>
         </section>
+        <section class="section mb-5 sectionForm2">
+            <div class="row mb-0 pb-4">
+                <div class="col-md-12">
+                    <button type="button" class="btn peach-gradient btn-rounded float-right" id="btnBack2">
+                        <i class="fas fa-arrow-left"></i> Back to Request Form
+                    </button>
+                </div>
+            </div>
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main showDetail" data-toggle="tooltip" data-placement="top" title="Book Course"><i class="fas fa-plus mt-0"></i></button>
+                        <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                           data-toggle="popover" data-trigger="focus" title="List"
+                           data-content="All list available."><i class="fas fa-info mt-0 mx-1"></i></a>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" title="Refresh data"><i class="fas fa-sync mt-0"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="text-white mx-3">Trainee Registration</a>
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-print mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-pdf mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-excel mt-0"></i></button>
+                    </div>
+                </div>
+                <div class="px-4 pb-4">
+                    <form class="form-inline md-form form-sm mt-4 mb-0 pb-0 float-right">
+                        <div class="">
+                            <i class="fas fa-search mt-2" aria-hidden="true"></i>
+                            <input type="text" id="xx" class="form-control form-control-sm" style="width: 250px; max-width:250px">
+                            <label for="txtAtyAssetTypeSearch" class="ml-4">Search</label>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table id="dtTrainee" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
+                            <thead>
+                            <tr class="th-strong">
+                                <th style="width: 4%">#</th>
+                                <th>Tranee's ID</th>
+                                <th>Name</th>
+                                <th>Contact Number</th>
+                                <th style="width: 32px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1022801</td>
+                                <td>A/L PURANATH RAO, DIWAKAR BHONS</td>
+                                <td>60126141761</td>
+                                <td>diwakarbhonsle@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1022802</td>
+                                <td>AANANTHAN, KEERTHAN A/L</td>
+                                <td>60169537159</td>
+                                <td>keerthanaananth@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>1009572</td>
+                                <td>AB AZIZ, AHMAD SALIM BIN</td>
+                                <td>60133562633</td>
+                                <td>salimaziz@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>1021599</td>
+                                <td>AB RAHMAN, AZRIN HAFIZ</td>
+                                <td>60126564796</td>
+                                <td>hafizabrahman@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>1001746</td>
+                                <td>ABD HAK, MOHD NIZAM BIN</td>
+                                <td>60165074000</td>
+                                <td>mohdnizamabd@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>1017963</td>
+                                <td>ABD RAHMAN, MOHAMMAD HAFIZ BIN</td>
+                                <td>60164404707</td>
+                                <td>mhafizabdrahman@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>1020367</td>
+                                <td>ABDLLAH, AHMAD BIN</td>
+                                <td>60193814830</td>
+                                <td>ahmadabdllah@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>1018065</td>
+                                <td>ABDUL MALEK, MD AIZAM BIN</td>
+                                <td>60193316666</td>
+                                <td>mdaizamshahar@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>1022134</td>
+                                <td>ABDUL, MOHD SOFEE BIN</td>
+                                <td>60126391495</td>
+                                <td>mohdsofeeabdul@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>1004599</td>
+                                <td>ABDULLAH, MUHAMAD AZZROY LEE</td>
+                                <td>60123166387</td>
+                                <td>muhamadazzroylee@airasia.com</td>
+                                <td><a><i class="fas fa-trash-alt material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Remove"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- Grid row -->
+                        <nav aria-label="Page navigation example">
+                            <h6 class="float-left pl-3">Showing 1 to 10 of 34 entries</h6>
+                            <ul class="pagination pagination-circle pg-blue justify-content-end">
+                                <li class="page-item disabled"><a class="page-link">First</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Last</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link">Last</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="next2" class="btn btn-outline-dark-green btn-rounded waves-effect btn-sm float-right">
+                                Submit Tranee Registration <i class="fas fa-paper-plane ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section mb-5 sectionForm3">
+            <div class="row mb-0 pb-4">
+                <div class="col-md-12">
+                    <button type="button" class="btn peach-gradient btn-rounded float-right" id="btnBack3">
+                        <i class="fas fa-check"></i> Finish
+                    </button>
+                </div>
+            </div>
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center z-depth-3">
+                    <div>
+                        <a tabindex="0" role="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                           data-toggle="popover" data-trigger="focus" title="List"
+                           data-content="All list available."><i class="fas fa-info mt-0 mx-1"></i></a>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" title="Refresh data"><i class="fas fa-sync mt-0"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="text-white mx-3">Scheduling Result</a>
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-print mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-pdf mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 material-tooltip-main"><i class="fas fa-file-excel mt-0"></i></button>
+                    </div>
+                </div>
+                <div class="px-4 pb-4">
+                    <div class="table-responsive">
+                        <table id="dtResult" class="table table-hover mb-0 display responsive" cellspacing="0" width="100%">
+                            <thead>
+                            <tr class="th-strong">
+                                <th style="width: 4%">#</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Instructor</th>
+                                <th>Classroom</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>Dangerous Goods Regulations</td>
+                                <td>Cpt Wong</td>
+                                <td>Krabi Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>Dangerous Goods Regulations</td>
+                                <td>Cpt Wong</td>
+                                <td>Krabi Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>Security Awareness / Bomb Threat Awareness</td>
+                                <td>Cpt Hakim</td>
+                                <td>Phuket Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>2 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>Security Awareness / Bomb Threat Awareness</td>
+                                <td>Cpt Hakim</td>
+                                <td>Phuket Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>3 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>Emergency Response Plan</td>
+                                <td>Cpt Wong</td>
+                                <td>Surat Thani Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>3 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>Emergency Response Plan</td>
+                                <td>Cpt Wong</td>
+                                <td>Surat Thani Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>4 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>Safety Management System</td>
+                                <td>Cpt Idham</td>
+                                <td>Labuan Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>4 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>Safety Management System</td>
+                                <td>Cpt Idham</td>
+                                <td>Labuan Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>5 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>Human Factor Awareness</td>
+                                <td>Cpt Wong</td>
+                                <td>Bangkok Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>5 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>Human Factor Awareness</td>
+                                <td>Cpt Wong</td>
+                                <td>Bangkok Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>8 September 2019</td>
+                                <td>0900-1230</td>
+                                <td>First Aid</td>
+                                <td>Cpt Sazali</td>
+                                <td>Kuala Lumpur Classroom</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>8 September 2019</td>
+                                <td>1400-1700</td>
+                                <td>First Aid</td>
+                                <td>Cpt Sazali</td>
+                                <td>Kuala Lumpur Classroom</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
 </main>
@@ -370,16 +681,38 @@
             try {
                 initiatePages();
 
-                $('.sectionForm').hide();
+                $('.sectionForm, .sectionForm2, .sectionForm3').hide();
 
-                $('.showDetail').on('click', function () {
+                $('.showDetail, #btnBack2').on('click', function () {
                     $('.sectionMain').hide();
                     $('.sectionForm').show();
+                    $('.sectionForm2').hide();
+                    $('.sectionForm3').hide();
+                    $(window).scrollTop(0);
                 });
 
-                $('#btnBack').on('click', function () {
+                $('#btnBack, #btnBack3').on('click', function () {
                     $('.sectionMain').show();
                     $('.sectionForm').hide();
+                    $('.sectionForm2').hide();
+                    $('.sectionForm3').hide();
+                    $(window).scrollTop(0);
+                });
+
+                $('#next').on('click', function () {
+                    $('.sectionMain').hide();
+                    $('.sectionForm').hide();
+                    $('.sectionForm2').show();
+                    $('.sectionForm3').hide();
+                    $(window).scrollTop(0);
+                });
+
+                $('#next2').on('click', function () {
+                    $('.sectionMain').hide();
+                    $('.sectionForm').hide();
+                    $('.sectionForm2').hide();
+                    $('.sectionForm3').show();
+                    $(window).scrollTop(0);
                 });
             } catch (e) {
                 toastr['error'](e.message, _ALERT_TITLE_ERROR);

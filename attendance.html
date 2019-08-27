@@ -46,23 +46,35 @@
                         <!--Search Function-->
                         <div class="col-xl-5 col-lg-12 mr-0">
                             <div class="view view-cascade gradient-card-header aqua-gradient-rgba z-depth-4">
-                                <h2 class="h2-responsive mb-0">Instructor Management</h2>
+                                <h2 class="h2-responsive mb-0">Attendance Management</h2>
                             </div>
                             <div class="card-body card-body-cascade">
                                 <div class="card-body pt-3">
-                                    <h6>Instructor Today's Status:</h6>
-                                    <div class="mt-1 pb-2">
-                                        <ul class="striped list-unstyled pl-2">
-                                            <li><a href="javascript:void(0);"><span class="bullet blue z-depth-2"></span> All Status <span class="badge blue float-right">34</span></a></li>
-                                            <li><a href="javascript:void(0);"><span class="bullet light-green z-depth-2"></span> Active <span class="badge light-green float-right">32</span></a></li>
-                                            <li><a href="javascript:void(0);"><span class="bullet red accent-2 z-depth-2"></span> On-leave <span class="badge red accent-2 float-right">2</span></a></li>
-                                        </ul>
-                                    </div>
                                     <h6 class="pb-3">Search:</h6>
                                     <div class="row">
                                         <div class="col-md-12 select-outline">
-                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
-                                            <label>Subject</label>
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>A320 CABIN CREW INITIAL (MAA)</option>
+                                                <option value="">A330 PILOT / CC RECURRENT (IAAX) DRILL</option>
+                                                <option value="">Guest Service Recurrent (IAA)</option>
+                                            </select>
+                                            <label>Course</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>28 August 2019</option>
+                                            </select>
+                                            <label>Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 select-outline">
+                                            <select class="mdb-select md-form md-outline colorful-select dropdown-info mt-0">
+                                                <option value="" disabled selected>0900 - 1230</option>
+                                            </select>
+                                            <label>Time</label>
                                         </div>
                                     </div>
                                     <div class="md-form md-outline mt-0">
@@ -70,12 +82,6 @@
                                         <label for="txtAszUserSearch" class="active">Keyword Search</label>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--Chart-->
-                        <div class="col-xl-7 col-lg-12 mb-5">
-                            <div class="view view-cascade z-depth-4">
-                                <div id="divChart" style="height: 450px; margin: 0"></div>
                             </div>
                         </div>
                     </div>
@@ -104,13 +110,11 @@
                                     <thead>
                                         <tr class="th-strong">
                                             <th scope="row" style="width: 4%">#</th>
-                                            <th>Instructor ID</th>
-                                            <th>Instructor Name</th>
+                                            <th>Tranee ID</th>
+                                            <th>Tranee Name</th>
                                             <th>Contact Number</th>
                                             <th>Email</th>
-                                            <th>Total hours</th>
-                                            <th style="width: 8%">Status</th>
-                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px">Attendance</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,9 +124,13 @@
                                             <td>A/L PURANATH RAO, DIWAKAR BHONS</td>
                                             <td>60126141761</td>
                                             <td>diwakarbhonsle@airasia.com</td>
-                                            <td>234</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
@@ -130,9 +138,13 @@
                                             <td>AANANTHAN, KEERTHAN A/L</td>
                                             <td>60169537159</td>
                                             <td>keerthanaananth@airasia.com</td>
-                                            <td>235</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox"><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -140,9 +152,13 @@
                                             <td>AB AZIZ, AHMAD SALIM BIN</td>
                                             <td>60133562633</td>
                                             <td>salimaziz@airasia.com</td>
-                                            <td>87</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox"><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
@@ -150,9 +166,13 @@
                                             <td>AB RAHMAN, AZRIN HAFIZ</td>
                                             <td>60126564796</td>
                                             <td>hafizabrahman@airasia.com</td>
-                                            <td>166</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
@@ -160,9 +180,13 @@
                                             <td>ABD HAK, MOHD NIZAM BIN</td>
                                             <td>60165074000</td>
                                             <td>mohdnizamabd@airasia.com</td>
-                                            <td>253</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
@@ -170,9 +194,13 @@
                                             <td>ABD RAHMAN, MOHAMMAD HAFIZ BIN</td>
                                             <td>60164404707</td>
                                             <td>mhafizabdrahman@airasia.com</td>
-                                            <td>187</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
@@ -180,9 +208,13 @@
                                             <td>ABDLLAH, AHMAD BIN</td>
                                             <td>60193814830</td>
                                             <td>ahmadabdllah@airasia.com</td>
-                                            <td>176</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
@@ -190,9 +222,13 @@
                                             <td>ABDUL MALEK, MD AIZAM BIN</td>
                                             <td>60193316666</td>
                                             <td>mdaizamshahar@airasia.com</td>
-                                            <td>155</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox"><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
@@ -200,9 +236,13 @@
                                             <td>ABDUL, MOHD SOFEE BIN</td>
                                             <td>60126391495</td>
                                             <td>mohdsofeeabdul@airasia.com</td>
-                                            <td>145</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>10</td>
@@ -210,9 +250,13 @@
                                             <td>ABDULLAH, MUHAMAD AZZROY LEE</td>
                                             <td>60123166387</td>
                                             <td>muhamadazzroylee@airasia.com</td>
-                                            <td>167</td>
-                                            <td><h6><span class="badge badge-pill success-color z-depth-2">Active</span></h6></td>
-                                            <td><a><i class="fas fa-info-circle showDetail" data-toggle="tooltip" data-placement="top" title="Edit"></i></a></td>
+                                            <td>
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox" checked><span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -296,41 +340,6 @@
                 initiatePages();
                 versionLocal = mzGetDataVersion();
                 changePasswordClass = new ModalChangePassword();
-
-                const chartData = [
-                    {name: 'Active', y:32, color:'green'},
-                    {name: 'On-leave', y:2, color:'red'}
-                ];
-
-                Highcharts.chart('divChart', {
-                    chart: {
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Total Instructor by Status'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.y} ({point.percentage:.1f}%)</b>'
-                    },
-                    credits:{
-                        enabled:false
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '<b>{point.name}</b>: {point.y}',
-                                color: 'white'
-                            }
-                        }
-                    },
-                    series: [{
-                        name: 'Status',
-                        data: chartData
-                    }]
-                });
 
             } catch (e) {
                 toastr['error'](e.message, _ALERT_TITLE_ERROR);
