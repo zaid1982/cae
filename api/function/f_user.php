@@ -465,9 +465,9 @@ class Class_user {
             $result['groupId'] = $user['group_id'];
             $result['userStatus'] = $user['user_status'];
 
-            $site = Class_db::getInstance()->db_select_single('cli_site', array('group_id'=>$result['groupId']));
-            $result['clientId'] = !empty($site) ? $site['client_id'] : '';
-            $result['siteId'] = !empty($site) ? $site['site_id'] : '';
+            //$site = Class_db::getInstance()->db_select_single('cli_site', array('group_id'=>$result['groupId']));
+            //$result['clientId'] = !empty($site) ? $site['client_id'] : '';
+            //$result['siteId'] = !empty($site) ? $site['site_id'] : '';
 
             return $result;
         }

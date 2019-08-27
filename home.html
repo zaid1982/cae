@@ -36,6 +36,67 @@
 <!--Main layout-->
 <main>
     <div class="container-fluid">
+        <!--Section: Intro-->
+        <section class="">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-cascade cascading-admin-card">
+                        <div class="admin-up">
+                            <i class="fa fas fa-plane-arrival success-color-dark z-depth-4"></i>
+                            <div class="data">
+                                <p>TOTAL CLIENT</p>
+                                <h4 class="font-weight-bold dark-grey-text">8</h4>
+                            </div>
+                        </div>
+                        <div class="card-body card-body-cascade mb-2">
+                            <p class="card-text">Total Active Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-cascade cascading-admin-card">
+                        <div class="admin-up">
+                            <i class="fa fas fa-chalkboard-teacher primary-color z-depth-4"></i>
+                            <div class="data">
+                                <p>TOTAL INSTRUCTOR</p>
+                                <h4 class="font-weight-bold dark-grey-text">43</h4>
+                            </div>
+                        </div>
+                        <div class="card-body card-body-cascade mb-2">
+                            <p class="card-text">Total Active Instructor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-cascade cascading-admin-card">
+                        <div class="admin-up">
+                            <i class="fa far fa-chalkboard warning-color z-depth-4"></i>
+                            <div class="data">
+                                <p>TOTAL COURSE</p>
+                                <h4 class="font-weight-bold dark-grey-text">20</h4>
+                            </div>
+                        </div>
+                        <div class="card-body card-body-cascade mb-2">
+                            <p class="card-text">Total Active Course</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-cascade cascading-admin-card">
+                        <div class="admin-up">
+                            <i class="fa fas fa-book-open red accent-2 z-depth-4"></i>
+                            <div class="data">
+                                <p>TOTAL SUBJECT</p>
+                                <h4 class="font-weight-bold dark-grey-text">123</h4>
+                            </div>
+                        </div>
+                        <div class="card-body card-body-cascade mb-2">
+                            <p class="card-text">Total Active Subject</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--Section: Notification panel-->
         <section class="mt-4 mb-4 sectionJbtMain">
             <div class="alert alert-danger" role="alert">
@@ -45,6 +106,21 @@
                 <p class="mb-0">1. Instructor <strong>'Maisarah bin Ali'</strong> license will be expired in 7 days <button class="btn btn-sm btn-warning" onclick="tambahAcara(0);">Manage <i class="fas fa-user-tie ml-1"></i></button></p>
                 <p class="mb-0">2. Instructor <strong>'Hassan bin Abdul Talib'</strong> submitted 1 day leave <button class="btn btn-sm btn-dark-green" onclick="tambahAcara(1);">Approve <i class="fas fa-check ml-1"></i></button></p>
                 <p class="mb-0">3. New Course Booker received from <strong>'Air Asia Indonesia'</strong> <button class="btn btn-sm btn-danger" onclick="tambahAcara(2);">Details <i class="fas fa-file-signature ml-1"></i></button></p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="view view-cascade z-depth-4">
+                        <div id="divChart" style="height: 450px; margin: 0"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="view view-cascade z-depth-4">
+                        <div id="chartUmnLeaveByStatus" style="height: 450px; margin: 0"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -75,8 +151,10 @@
 <script type="text/javascript" src="js/vendor/datatables/js/jszip.min.js"></script>
 <script type="text/javascript" src="js/vendor/datatables/js/pdfmake.min.js"></script>
 <script type="text/javascript" src="js/vendor/datatables/js/vfs_fonts.js"></script>
-<!-- Stepper JavaScript - minified -->
-<script type="text/javascript" src="js/addons-pro/stepper.min.js"></script>
+<!-- Highchart -->
+<script type="text/javascript" src="js/vendor/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="js/vendor/highcharts/modules/exporting.js"></script>
+<script type="text/javascript" src="js/vendor/highcharts/modules/export-data.js"></script>
 
 <!--Custom scripts-->
 <script type="text/javascript">
@@ -94,6 +172,73 @@
                 versionLocal = mzGetDataVersion();
                 changePasswordClass = new ModalChangePassword();
 
+                const chartData = [
+                    {name: 'Active', y:32, color:'green'},
+                    {name: 'On-leave', y:2, color:'red'}
+                ];
+
+                Highcharts.chart('divChart', {
+                    chart: {
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Total Instructor by Status'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.y} ({point.percentage:.1f}%)</b>'
+                    },
+                    credits:{
+                        enabled:false
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.y}'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Status',
+                        data: chartData
+                    }]
+                });
+
+                const chartData2 = [
+                    {name: 'Active', y:32, color:'green'},
+                    {name: 'On-leave', y:2, color:'red'}
+                ];
+
+                Highcharts.chart('divChart', {
+                    chart: {
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Total User by Role'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.y} ({point.percentage:.1f}%)</b>'
+                    },
+                    credits:{
+                        enabled:false
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.y}'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Role',
+                        data: chartData2
+                    }]
+                });
             } catch (e) {
                 toastr['error'](e.message, _ALERT_TITLE_ERROR);
             }

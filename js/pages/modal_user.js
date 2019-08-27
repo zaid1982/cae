@@ -232,7 +232,7 @@ function ModalUser() {
                 mzCheckFuncParam([_userId, _rowRefresh]);
                 $('#chkMusUserType1, #chkMusUserType2, #optMusClientId, #optMusSiteId').prop('disabled', true);
                 mzOption('optMusDesignationId', refDesignation, 'Choose Designation *', 'designationId', 'designationDesc', {designationStatus: '1'}, 'required');
-                mzOption('optMusClientId', refClient, 'Choose Client', 'clientId', 'clientName', {clientStatus: '1'}, 'required');
+                //mzOption('optMusClientId', refClient, 'Choose Client', 'clientId', 'clientName', {clientStatus: '1'}, 'required');
 
                 const dataUser = mzAjaxRequest('profile.php?userId='+userId, 'GET');
                 const roles = dataUser['roles'];
@@ -260,8 +260,8 @@ function ModalUser() {
                 else {
                     mzOption('optMusSiteId', refSite, 'Choose Site', 'siteId', 'siteName', {clientId: dataUser['clientId'], siteStatus: '1'}, 'required');
                     mzSetFieldValue('MusUserType', '2', 'check');
-                    mzSetFieldValue('MusClientId', dataUser['clientId'], 'select', 'Client *');
-                    mzSetFieldValue('MusSiteId', dataUser['siteId'], 'select', 'Site *');
+                    //mzSetFieldValue('MusClientId', dataUser['clientId'], 'select', 'Client *');
+                    //mzSetFieldValue('MusSiteId', dataUser['siteId'], 'select', 'Site *');
                     $('.divMusRoles, #divMusClient, #divMusSite').show();
                     $('#divMusRole1, #divMusRole2, #divMusRole3, #divMusRole4, #divMusRole5').hide();
                     $('#divMusRole6').show();

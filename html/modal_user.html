@@ -44,21 +44,6 @@
                         <label for="txtMusUserEmail" id="lblMusUserEmail">Email *</label>
                         <p class="font-small text-danger" id="txtMusUserEmailErr"></p>
                     </div>
-                    <h6 class="font-small mb-0">User Type:</h6>
-                    <div class="md-form mt-0 ml-2">
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="chkMusUserType" id="chkMusUserType1" value="1">
-                            <label class="form-check-label" for="chkMusUserType1">Internal</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="chkMusUserType" id="chkMusUserType2" value="2">
-                            <label class="form-check-label" for="chkMusUserType2">Client</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="chkMusUserType" id="chkMusUserType3" value="3" disabled>
-                            <label class="form-check-label" for="chkMusUserType3">Public</label>
-                        </div>
-                    </div>
                     <div class="row" id="divMusClient">
                         <div class="col-md-12 select-outline mt-2">
                             <select id="optMusClientId" class="mdb-select md-form md-outline colorful-select dropdown-info mt-0"></select>
@@ -79,23 +64,19 @@
                     <div class="md-form mt-0 ml-2 divMusRoles">
                         <div class="form-check form-check-inline" id="divMusRole1">
                             <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole1" value="1">
-                            <label class="form-check-label" for="chkMusRole1">Administrator</label>
+                            <label class="form-check-label" for="chkMusRole1">Super Administrator</label>
                         </div>
                         <div class="form-check form-check-inline" id="divMusRole2">
                             <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole2" value="2">
-                            <label class="form-check-label" for="chkMusRole2">Facility Manager</label>
+                            <label class="form-check-label" for="chkMusRole2">Scheduler Officer</label>
                         </div>
                         <div class="form-check form-check-inline" id="divMusRole3">
                             <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole3" value="3">
-                            <label class="form-check-label" for="chkMusRole3">Engineer</label>
+                            <label class="form-check-label" for="chkMusRole3">Instructor</label>
                         </div>
                         <div class="form-check form-check-inline" id="divMusRole4">
                             <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole4" value="4">
-                            <label class="form-check-label" for="chkMusRole4">Facility Supervisor</label>
-                        </div>
-                        <div class="form-check form-check-inline" id="divMusRole5">
-                            <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole5" value="5">
-                            <label class="form-check-label" for="chkMusRole5">Technician</label>
+                            <label class="form-check-label" for="chkMusRole4">Trainee</label>
                         </div>
                         <div class="form-check form-check-inline" id="divMusRole6">
                             <input type="checkbox" class="form-check-input" name="chkMusRole[]" id="chkMusRole6" value="6">
